@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { makeServer } from './server';
 import { BrowserRouter } from 'react-router-dom';
+import { Providers } from './Context/Providers';
 
 // Call make Server
 makeServer();
@@ -10,7 +11,9 @@ makeServer();
 ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<App />
+			<Providers>
+				<App />
+			</Providers>
 		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById('root'),

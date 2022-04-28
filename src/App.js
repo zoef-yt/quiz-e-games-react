@@ -1,10 +1,11 @@
-import Mockman from 'mockman-js';
-
+import { Footer, Header } from './Components/index';
+import './index.css';
 function App() {
 	return (
-		<div className='App'>
-			{/* <Mockman /> */}
-			<h1>Initial commit for master branch</h1>
+		<div className='game-e-quiz-app '>
+			<Header />
+			<h1 className='app-main-content'>Initial commit for dev branch</h1>
+			<Footer />
 		</div>
 	);
 }
