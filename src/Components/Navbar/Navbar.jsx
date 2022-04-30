@@ -1,10 +1,13 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { HalfMoonIcon, SunIcon } from '../../Asset/AllSVG.jsx';
-import { useTheme } from '../../Context/index.js';
+import { useTheme, useModal, useAuth } from '../../Context/index.js';
 
 import './Navbar.css';
 const Navbar = () => {
+	const { openModal } = useModal();
 	const { theme, toggleTheme } = useTheme();
+	const { logoutHandler, user, isLoginModal } = useAuth();
+
 	return (
 		<nav className='navbar-mobile'>
 			<div className='navbar'>
@@ -16,17 +19,19 @@ const Navbar = () => {
 					<div className='flex-column' onClick={toggleTheme}>
 						{theme === 'dark' ? <SunIcon className='header-icon' /> : <HalfMoonIcon className='header-icon' />}
 					</div>
-					{/*//! WIL BE UNCOMMENTED AFTER AUTH */}
-					{/* {user ? (
+					{user ? (
 						<div className='profile-modal-holder'>
-							<div className='avatar avatar-sm not-selectable '>Z</div>
+							<div className='avatar avatar-sm not-selectable '>{user?.userInfo.name?.substring(0, 1).toUpperCase()}</div>
 							<div className='profile-modal not-selectable '>
 								<ProfileModalLink text='Home' navigateTo='/' />
 								<li onClick={() => logoutHandler()}>Logout 😞</li>
 							</div>
 						</div>
-					) : ( */}
-					<button className='btn btn-link'> Login</button>
+					) : (
+						<button onClick={() => openModal('AuthModal')} className='btn btn-link'>
+							{isLoginModal ? 'Login' : 'Sign Up'}
+						</button>
+					)}
 				</div>
 			</div>
 			<input type='search' className='text-field mobile-searchbar' placeholder='Search For Quiz' />

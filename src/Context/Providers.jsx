@@ -1,14 +1,18 @@
 import { FilterProvider } from './FilterContext';
-import { ThemeProvider, CategoryProvider, AllQuizzesProvider } from './index';
+import { ThemeProvider, CategoryProvider, AllQuizzesProvider, AuthProvider, ModalProvider } from './index';
 
 const Providers = ({ children }) => {
 	return (
 		<ThemeProvider>
-			<CategoryProvider>
-				<AllQuizzesProvider>
-					<FilterProvider>{children}</FilterProvider>
-				</AllQuizzesProvider>
-			</CategoryProvider>
+			<AuthProvider>
+				<ModalProvider>
+					<CategoryProvider>
+						<AllQuizzesProvider>
+							<FilterProvider>{children}</FilterProvider>
+						</AllQuizzesProvider>
+					</CategoryProvider>
+				</ModalProvider>
+			</AuthProvider>
 		</ThemeProvider>
 	);
 };
