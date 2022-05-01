@@ -1,0 +1,28 @@
+.rules-section .list-group .list-group-item {
+	padding: 2rem;
+}
+
+.rules-section {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.rules-modal-card {
+	background-color: var(--colour-black-third);
+	border: 1px solid var(--colour-primary);
+	min-height: unset;
+	width: 100%;
+	max-width: 80ch;
+	margin: 0 2rem;
+	border-radius: 5px;
+	max-height: 90vh;
+	overflow-x: auto;
+	padding: 1rem;
+}
+
+.rules-modal-card .list-group .list-group-item {
+	padding: 2rem;
+}
