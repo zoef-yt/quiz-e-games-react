@@ -1,6 +1,6 @@
 import MockmanEs from 'mockman-js';
 import { Routes, Route } from 'react-router-dom';
-import { AllQuizPage, HomePage, PageNotFound, RulesPage } from '../../Pages/index';
+import { AllQuizPage, HomePage, PageNotFound, ResultPage, SingleQuizPage } from '../../Pages/index';
 
 const AppRoutes = () => {
 	return (
@@ -8,7 +8,8 @@ const AppRoutes = () => {
 			<Route path='/' element={<HomePage />} />
 			<Route path='/mock-api' element={<MockmanEs />} />
 			<Route path='/all-quizzes' element={<AllQuizPage />} />
-			<Route path='/all-quizzes/rules' element={<RulesPage />} />
+			<Route path='/all-quizzes/single-quiz-page' element={<SingleQuizPage />} />
+			<Route path='/all-quizzes/single-quiz-page/result' element={<ResultPage />} />
 			<Route path='*' element={<PageNotFound />} />
 		</Routes>
 	);

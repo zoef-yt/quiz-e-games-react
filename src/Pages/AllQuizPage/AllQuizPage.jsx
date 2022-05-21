@@ -2,12 +2,16 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import './AllQuizPage.css';
 import { SingleQuizItem } from './Components/SingleQuizItem';
-import { useAllQuizzes, useFilter } from '../../Context';
+import { useAllQuizzes, useFilter, useQuizQuestion } from '../../Context';
 
 const AllQuizPage = () => {
 	const { pathname } = useLocation();
+	const { clearCurrentQuizHandler, clearQuestion, clearUserSelection } = useQuizQuestion();
 	useEffect(() => {
 		window.scrollTo(0, 0);
+		clearCurrentQuizHandler();
+		clearQuestion();
+		clearUserSelection();
 	}, [pathname]);
 
 	const { quizzes } = useAllQuizzes();
@@ -32,7 +36,7 @@ const AllQuizPage = () => {
 
 	const filteredDate = getFilteredData(filterState);
 	return (
-		<main className='homepage-content'>
+		<main className='app-main-content'>
 			<section className='categories-section'>
 				<h1
 					onClick={() => {
@@ -53,6 +57,7 @@ const AllQuizPage = () => {
 							return (
 								<SingleQuizItem
 									key={_id}
+									id={_id}
 									src={src}
 									categoryName={categoryName}
 									totalPoints={totalScore}

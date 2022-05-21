@@ -1,5 +1,6 @@
 import { FilterProvider } from './FilterContext';
 import { ThemeProvider, CategoryProvider, AllQuizzesProvider, AuthProvider, ModalProvider } from './index';
+import { QuizQuestionsProvider } from './QuizQuestionsContext';
 
 const Providers = ({ children }) => {
 	return (
@@ -8,7 +9,9 @@ const Providers = ({ children }) => {
 				<ModalProvider>
 					<CategoryProvider>
 						<AllQuizzesProvider>
-							<FilterProvider>{children}</FilterProvider>
+							<QuizQuestionsProvider>
+								<FilterProvider>{children}</FilterProvider>
+							</QuizQuestionsProvider>
 						</AllQuizzesProvider>
 					</CategoryProvider>
 				</ModalProvider>
