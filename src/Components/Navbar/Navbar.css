@@ -1,19 +1,19 @@
-.header {
+.navbar {
 	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
 }
 
-.header-brand {
+.navbar-brand {
 	margin: 0 2rem;
-	width: 100%;
+	max-width: 100%;
 	color: var(--colour-text-white);
 	font-size: calc(2.2rem + 0.9vw);
 	font-weight: 500;
 }
 
-.header .text-field {
+.navbar .text-field {
 	margin: 2rem;
 	width: 100%;
 	height: 4.5rem;
@@ -21,7 +21,7 @@
 	font-weight: 500;
 }
 
-.header-cta {
+.navbar-cta {
 	padding: 2rem;
 	display: flex;
 	justify-content: flex-end;
@@ -29,31 +29,29 @@
 	gap: 2rem;
 	max-width: 100%;
 }
-.header-cta button {
-	width: 15rem;
-}
-.header-cta svg {
+
+.navbar-cta svg {
 	display: flex;
 	justify-content: center;
 }
 
-.header-cta img {
+.navbar-cta img {
 	flex-shrink: 0;
 }
 
-.header-cta > *:hover {
+.navbar-cta > *:hover {
 	transform: translateY(-2px);
 	cursor: pointer;
 	color: var(--colour-primary);
 }
 
-.header-cta > *:hover:last-child {
+.navbar-cta > *:hover:last-child {
 	transform: none;
 	cursor: pointer;
 	color: var(--colour-primary);
 }
 
-.header-cta .badge-holder img {
+.navbar-cta .badge-holder img {
 	flex-shrink: 0;
 }
 
@@ -115,42 +113,44 @@
 	display: block;
 }
 
-.header-mobile {
+.navbar-mobile {
 	width: 100%;
 	flex-direction: row;
 	transition: all 0.3s ease-in-out;
-	grid-area: header;
+	grid-area: navbar;
 }
 
 @media screen and (max-width: 768px) {
-	.header-mobile {
+	.navbar-mobile {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		transition: all 0.3s ease-in-out;
 	}
-
-	.header-mobile .text-field {
+	.navbar-mobile .text-field {
 		display: none;
 	}
-
-	.header-mobile .mobile-searchbar {
+	.navbar-mobile .mobile-searchbar {
 		display: block;
 	}
-
-	.header-mobile .header-cta .badge-holder {
+	.navbar-mobile .navbar-cta .badge-holder {
 		display: none;
 	}
+
+	/* !TODO Commented to fix an issue */
+	/* .navbar-mobile .profile-modal > *:hover > *:parent {
+		display: none;
+	} */
 }
 
 @media screen and (min-width: 768px) {
-	.header-mobile .text-field {
+	.navbar-mobile .text-field {
 		display: block;
 	}
-	.header-mobile .mobile-searchbar {
+	.navbar-mobile .mobile-searchbar {
 		display: none;
 	}
-	.header-mobile .header-cta .badge-holder {
+	.navbar-mobile .navbar-cta .badge-holder {
 		display: block;
 	}
 }

@@ -13,7 +13,7 @@
 	grid-template-columns: 1fr;
 	grid-template-rows: 8rem 1fr 5rem;
 	grid-template-areas:
-		'header'
+		'navbar'
 		'main-content'
 		'footer';
 	margin: auto;
@@ -24,6 +24,19 @@
 
 .modal-opened {
 	z-index: var(--z-index-modal-level);
+}
+
+.color-negative {
+	color: var(--colour-error);
+}
+
+.color-positive {
+	color: var(--colour-accent-one);
+}
+
+.btn-disabled {
+	cursor: not-allowed;
+	background-color: var(--colour-text-grey);
 }
 
 .app-main-content {

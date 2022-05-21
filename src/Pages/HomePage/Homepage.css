@@ -1,0 +1,35 @@
+.categories-section {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+}
+
+.categories-section .card {
+	width: 32rem;
+	margin: 1rem;
+}
+
+.categories-section a {
+	display: block;
+}
+
+.categories-header {
+	width: 100%;
+	display: grid;
+	place-content: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-top: 2rem;
+}
+
+.card-body .card-overlay h1 {
+	color: var(--text-color-black);
+}
+
+@media screen and (max-width: 768px) {
+	.categories-section .card {
+		width: 29rem;
+		margin: 1rem;
+	}
+}
