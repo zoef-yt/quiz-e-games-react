@@ -30,7 +30,7 @@ const AllQuizPage = () => {
 			: [...dataToShow].filter((quiz) => quiz.categoryName === selectedCategory);
 	};
 
-	console.log(getFilteredData(filterState));
+	const filteredDate = getFilteredData(filterState);
 	return (
 		<main className='homepage-content'>
 			<section className='categories-section'>
@@ -47,19 +47,20 @@ const AllQuizPage = () => {
 					All-QUIZ{' '}
 				</h1>
 				<ul className='list-group'>
-					{getFilteredData(filterState)?.map((quiz) => {
-						const { _id, title, totalScore, src, mcqs, categoryName } = quiz;
-						return (
-							<SingleQuizItem
-								key={_id}
-								src={src}
-								categoryName={categoryName}
-								totalPoints={totalScore}
-								quizName={title}
-								questions={mcqs}
-							/>
-						);
-					})}
+					{filteredDate &&
+						filteredDate.map((quiz) => {
+							const { _id, title, totalScore, src, mcqs, categoryName } = quiz;
+							return (
+								<SingleQuizItem
+									key={_id}
+									src={src}
+									categoryName={categoryName}
+									totalPoints={totalScore}
+									quizName={title}
+									questions={mcqs}
+								/>
+							);
+						})}
 				</ul>
 			</section>
 		</main>
